@@ -156,8 +156,8 @@ app.get('/api/latest/imagesearch/', function(req, res){
         if(err) {
           throw err
         }
-      //var latsearches =db.collection('latestsearches').find( );
-      var documents = SpeCollection.AsQueryable();
+      var latsearches =db.collection('latestsearches').find( ).limit(20);
+
       console.log("latest searches are ",latsearches);
 
 
