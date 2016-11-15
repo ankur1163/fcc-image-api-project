@@ -156,9 +156,18 @@ app.get('/api/latest/imagesearch/', function(req, res){
         if(err) {
           throw err
         }
-      var latsearches =db.collection('latestsearches').find( ).limit(20);
+    //  var latsearches =db.collection('latestsearches').find( );
+    //  latsearches.toArray(function(data){console.log("here's the data ",data)})
+    //console.log(db.collection('latestsearches').count());
+      //db.collection('latestsearches').find({}).toArray(function(data){
+//console.log(data)
+//});
 
-      console.log("latest searches are ",latsearches);
+//db.collection('latestsearches').count(function(data){console.log(data)});
+db.collection('latestsearches').find({},{_id:0}).toArray(function(err,data){
+                      console.log(data);
+                      res.json(data);
+                      });
 
 
 
